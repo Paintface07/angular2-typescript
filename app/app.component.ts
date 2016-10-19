@@ -59,17 +59,19 @@ import { Hero } from "./hero.component";
                 <span class="badge">{{ h.id }}</span> {{ h.name }}
             </li>
         </ul>
-        <h2>{{hero.name}} details!</h2>
-        <div><label>id: </label>{{hero.id}}</div>
-        <div>
-            <label>name: </label>
-            <input [(ngModel)]="hero.name" placeholder="name"/>
+        <div *ngIf="hero">
+            <h2>{{hero.name}} details!</h2>
+            <div><label>id: </label>{{hero.id}}</div>
+            <div>
+                <label>name: </label>
+                <input [(ngModel)]="hero.name" placeholder="name"/>
+            </div>
         </div>
     `
-})
+}) 
 export class AppComponent {
     title: string = 'Tour of Heroes';
-    hero: Hero = new Hero();
+    hero: Hero;
     heroes: Hero[] = HEROES;
 
     onSelect(hero: Hero): void {
