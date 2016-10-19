@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Hero } from "./hero.component";
+import { HeroDetailComponent } from "./hero-detail.component";
 
 @Component({
     styles: [`
@@ -55,20 +56,15 @@ import { Hero } from "./hero.component";
     template: `
         <h2>My Heroes</h2>
         <ul class="heroes">
-            <li *ngFor="let h of heroes" (click)="onSelect(h)">
-                <span class="badge">{{ h.id }}</span> {{ h.name }}
+            <li *ngFor="let h of heroes"
+                [class.selected]="h === hero"
+                (click)="onSelect(h)">
+                    <span class="badge">{{ h.id }}</span> {{ h.name }}
             </li>
         </ul>
-        <div *ngIf="hero">
-            <h2>{{hero.name}} details!</h2>
-            <div><label>id: </label>{{hero.id}}</div>
-            <div>
-                <label>name: </label>
-                <input [(ngModel)]="hero.name" placeholder="name"/>
-            </div>
-        </div>
+        <my-hero-detail [hero]="hero"></my-hero-detail>
     `
-}) 
+})
 export class AppComponent {
     title: string = 'Tour of Heroes';
     hero: Hero;
