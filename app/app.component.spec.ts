@@ -1,6 +1,5 @@
 /* tslint:disable:no-unused-variable */
 import { AppComponent } from './app.component';
-import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
 import { TestBed }      from '@angular/core/testing';
@@ -23,7 +22,6 @@ describe('AppComponent with TCB', function () {
         AppComponent,
         HeroDetailComponent
     ], imports: [
-      BrowserModule,
       FormsModule
     ]});
   });
