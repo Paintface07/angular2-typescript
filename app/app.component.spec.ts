@@ -1,9 +1,12 @@
 /* tslint:disable:no-unused-variable */
 import { AppComponent } from './app.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { TestBed }      from '@angular/core/testing';
 
 import { By }           from '@angular/platform-browser';
+import { HeroDetailComponent}  from "./hero-detail.component";
 
 ////////  SPECS  /////////////
 
@@ -16,7 +19,13 @@ describe('Smoke test', () => {
 
 describe('AppComponent with TCB', function () {
   beforeEach(() => {
-    TestBed.configureTestingModule({declarations: [AppComponent]});
+    TestBed.configureTestingModule({declarations: [
+        AppComponent,
+        HeroDetailComponent
+    ], imports: [
+      BrowserModule,
+      FormsModule
+    ]});
   });
 
   it('should instantiate component', () => {
@@ -28,10 +37,10 @@ describe('AppComponent with TCB', function () {
     let fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
 
-    let h1 = fixture.debugElement.query(el => el.name === 'h1').nativeElement;  // it works
+    let h2 = fixture.debugElement.query(el => el.name === 'h2').nativeElement;  // it works
 
-        h1 = fixture.debugElement.query(By.css('h1')).nativeElement;            // preferred
+        h2 = fixture.debugElement.query(By.css('h2')).nativeElement;            // preferred
 
-    expect(h1.innerText).toMatch(/angular app/i, '<h1> should say something about "Angular App"');
+    expect(h2.innerText).toMatch(/my heroes/i, '<h1> should say something about "Angular App"');
   });
 });
