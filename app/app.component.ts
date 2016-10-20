@@ -57,21 +57,21 @@ import { HeroDetailComponent } from "./hero-detail.component";
         <h2>My Heroes</h2>
         <ul class="heroes">
             <li *ngFor="let h of heroes"
-                [class.selected]="h === hero"
+                [class.selected]="h === selectedHero"
                 (click)="onSelect(h)">
                     <span class="badge">{{ h.id }}</span> {{ h.name }}
             </li>
         </ul>
-        <my-hero-detail [hero]="hero"></my-hero-detail>
+        <my-hero-detail [hero]="selectedHero"></my-hero-detail>
     `
 })
 export class AppComponent {
     title: string = 'Tour of Heroes';
-    hero: Hero;
+    selectedHero: Hero;
     heroes: Hero[] = HEROES;
 
     onSelect(hero: Hero): void {
-        this.hero = hero;
+        this.selectedHero = hero;
     }
 }
 

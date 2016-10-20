@@ -44,6 +44,8 @@ app/**/*.js
 
 app/**/*.map
 
-e2e/**/*.js
+e2e/*.js
 
-e2e/**/*.map
+e2e/*.map
+
+_test-output
